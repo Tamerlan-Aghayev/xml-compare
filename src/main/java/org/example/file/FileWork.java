@@ -94,8 +94,12 @@ public class FileWork {
                 if (tagname.equals("applicationID")) {index++;}
                 if (!line1.equals(line2)) {
                     // The lines are different, so split them into tags and codes
-                    String beforeCode = tagAndCode1[1].split("<")[0].trim();
-                    String afterCode = tagAndCode2[1].split("<")[0].trim();
+                    String beforeCode="";
+                    String afterCode="";
+                    if(tagAndCode1.length!=1) {
+                         beforeCode = tagAndCode1[1].split("<")[0].trim();
+                         afterCode = tagAndCode2[1].split("<")[0].trim();
+                    }
 
                     // Create a new row in the Excel sheet for this difference
                     Row dataRow = sheet.createRow(rowNumber++);
