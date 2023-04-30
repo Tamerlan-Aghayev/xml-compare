@@ -87,8 +87,10 @@ public class FileWork {
                 String line2 = lines2.get(i);
                 String[] tagAndCode1 = line1.split(">");
                 String[] tagAndCode2 = line2.split(">");
+                String []arr = tagAndCode1[0].split("<");
+                if(arr.length==1) continue;
 
-                String tagname = tagAndCode1[0].split("<")[1].trim();
+                String tagname = arr[1].trim();
                 if (tagname.equals("applicationID")) {index++;}
                 if (!line1.equals(line2)) {
                     // The lines are different, so split them into tags and codes
